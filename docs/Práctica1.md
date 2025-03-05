@@ -4,7 +4,7 @@
 
 **para la instalación vamos a tener que crear la siguiente estructura de directorios y archivos:**
 
-![](docs/imagenes/directorio.png)
+![](imagenes/directorio.png)
 
 **Una vez creados los archivos y directorios, procedemos a la instalación de las herramientas.**
 
@@ -45,7 +45,7 @@ cp ../conf/000-default.conf /etc/apache2/sites-available
 
 > [!IMPORTANT]  
 > Tenemos que hacer un archivo de configuración llamado `000-default.conf` y copiarlo en los sitios disponibles de apache para que lo podamos habilitar. El archivo `000-default.conf` tiene que quedar como en la imagen:   
-![](docs/imagenes/000-default.conf.png)
+![](imagenes/000-default.conf.png)
 
 
 ### Paso 4: Instalamos PHP y algunos módulos para Apache y MySQL
@@ -95,11 +95,11 @@ chown -R www-data:www-data /var/www/html
 
 ### Paso 4: comprobación de que la página `index.php` funciona
 
-![](docs/imagenes/index.php.png)
+![](imagenes/index.php.png)
 
 ### Paso 5: comprobación de que el servicio `MySQLServer` funciona
 
-![](docs/imagenes/mysqlserver.png)
+![](imagenes/mysqlserver.png)
 
 ---
 ## 2. Creación del archivo `install_tools.sh` para la automatización del proceso de instalación
@@ -166,7 +166,7 @@ mysql -u root <<< "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%'"
 
 ### Paso 4: comprobación de que la página `phpMyAdmin` funciona
 
-![](docs/imagenes/phpmyadmin.png)
+![](imagenes/phpmyadmin.png)
 
 
 ## 2.3 Instalacion de Adminer
@@ -204,7 +204,7 @@ chown -R www-data:www-data /var/www/html/adminer
 
 ### Paso 5: comprobación de que la página `adminer` funciona
 
-![](docs/imagenes/adminer.png)
+![](imagenes/adminer.png)
 
 ## 2.4 Instalacion de la herramienta GoAcces
 
@@ -242,7 +242,7 @@ cp ../conf/000-default.stats.conf /etc/apache2/sites-available
 > [!IMPORTANT]  
 > Tenemos que hacer otro archivo de configuración llamado `000-default.stats.conf` y copiarlo en los sitios disponibles de apache para que lo podamos habilitar más tarde.  
 El archivo `000-default.stats.conf` tiene que quedar como en la imagen:
-![](docs/imagenes/000-default.stats.conf.png)
+![](imagenes/000-default.stats.conf.png)
 
 ### Paso 2: Deshabilitamos el virtualhost que hay por defecto
 
@@ -285,7 +285,7 @@ cp ../conf/000-default-htaccess.conf /etc/apache2/sites-available
 > [!IMPORTANT]  
 > Tenemos que hacer otro archivo de configuración llamado `000-default-htaccess.conf` y copiarlo en los sitios disponibles de apache para que lo podamos habilitar más tarde.  
 El archivo `000-default-htaccess.conf` tiene que quedar como en la imagen:
-![](docs/imagenes/000-default-htaccess.conf.png)
+![](imagenes/000-default-htaccess.conf.png)
 
 ### Paso 2: Deshabilitamos el virtualhost `000-default-stats.conf`
 
@@ -314,12 +314,12 @@ cp ../conf/.htaccess /var/www/html/stats
 > [!IMPORTANT]  
 > Tenemos que hacer un archivo de configuración llamado `.htaccess` y copiarlo en la ruta de `stats` para que coja la configuración del archivo y al entrar a la web nos pida las credenciales necesarias.  
 El archivo `.htaccess` tiene que quedar como en la imagen:
-![](docs/imagenes/htaccess.png)
+![](imagenes/htaccess.png)
 
 ### Paso 6: comprobación de que la autenticación funciona
 
-![](docs/imagenes/stats.png)
+![](imagenes/stats.png)
 
 ### Paso 7: comprobación de que la página funciona
 
-![](docs/imagenes/stats2.png)
+![](imagenes/stats2.png)
