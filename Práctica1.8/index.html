@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Pr%C3%A1ctica1.8/">
+        <link rel="prev" href="../Pr%C3%A1ctica1.1/">
       
       
-        <link rel="next" href="../Pr%C3%A1ctica5.4/">
+        <link rel="next" href="../Pr%C3%A1ctica1.11/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Práctica-1.11 - IAW</title>
+        <title>Práctica-1.8 - IAW</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#practica-iaw-111-implantacion-de-wordpress-en-aws-utilizando-una-arquitectura-de-tres-niveles" class="md-skip">
+        <a href="#practica-iaw-18-implantacion-de-moodle-en-amazon-web-services-aws" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Práctica-1.11
+              Práctica-1.8
             
           </span>
         </div>
@@ -259,27 +259,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../Pr%C3%A1ctica1.8/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Práctica-1.8
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -296,7 +275,7 @@
           
   
   <span class="md-ellipsis">
-    Práctica-1.11
+    Práctica-1.8
     
   </span>
   
@@ -308,7 +287,7 @@
         
   
   <span class="md-ellipsis">
-    Práctica-1.11
+    Práctica-1.8
     
   </span>
   
@@ -340,9 +319,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implantacion-de-wordpress-en-aws-utilizando-una-arquitectura-de-tres-niveles" class="md-nav__link">
+  <a href="#implantacion-de-moodle-en-amazon-web-services-aws" class="md-nav__link">
     <span class="md-ellipsis">
-      Implantación de Wordpress en AWS utilizando una arquitectura de tres niveles
+      Implantación de Moodle en Amazon Web Services (AWS)
     </span>
   </a>
   
@@ -373,22 +352,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-infraestructura-necesaria" class="md-nav__link">
+  <a href="#2-creacion-del-archivo-deploy_moodle-para-la-implementacion" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 Infraestructura necesaria
+      2. Creación del archivo deploy_moodle para la implementación
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-creacion-del-archivo-setup_nfs_server-para-el-servidor-nfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Creación del archivo setup_nfs_server para el servidor NFS
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Creación del archivo setup_nfs_server para el servidor NFS">
+    <nav class="md-nav" aria-label="2. Creación del archivo deploy_moodle para la implementación">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -401,72 +371,99 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-2-actualizamos-los-repositorios" class="md-nav__link">
+  <a href="#paso-2-eliminamos-descargas-previas-de-moodle" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 2. Actualizamos los repositorios
+      Paso 2. Eliminamos descargas previas de moodle
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-3-actualizamos-los-paquetes" class="md-nav__link">
+  <a href="#paso-3-eliminamos-descargas-previas-de-varwwwhtml" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 3. Actualizamos los paquetes
+      Paso 3. Eliminamos descargas previas de /var/www/html/*
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-4-instalamos-el-servidor-nfs" class="md-nav__link">
+  <a href="#paso-4-descargamos-el-codigo-fuente-de-moodle" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 4. Instalamos el servidor NFS
+      Paso 4. Descargamos el código fuente de Moodle
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-5-hacemos-el-directorio" class="md-nav__link">
+  <a href="#paso-5-extraemos-moodle" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 5. hacemos el directorio
+      Paso 5. Extraemos Moodle
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-6-modificamos-el-grupo-y-el-propietario-del-directorio" class="md-nav__link">
+  <a href="#paso-6-movemos-moodle-al-directorio-deseado" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 6. Modificamos el grupo y el propietario del directorio
+      Paso 6. Movemos Moodle al directorio deseado
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-7-copiamos-la-plantilla-exports-a-etcexports" class="md-nav__link">
+  <a href="#paso-7-configuramos-permisos-para-apache" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 7. copiamos la plantilla exports a /etc/exports
+      Paso 7. Configuramos permisos para apache
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-8-reemplazamos-el-valor-de-la-plantilla-de-etcexports" class="md-nav__link">
+  <a href="#paso-8-creamos-la-base-de-datos-y-el-usuario-para-moodle" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 8. Reemplazamos el valor de la plantilla de /etc/exports
+      Paso 8. Creamos la base de datos y el usuario para Moodle
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-9-reiniciamos-el-servicio-de-nfs" class="md-nav__link">
+  <a href="#paso-9-creamos-el-archivo-de-configuracion-de-moodle-y-lo-configuramos" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 9. Reiniciamos el servicio de NFS
+      Paso 9. Creamos el archivo de configuración de moodle y lo configuramos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-10-creamos-el-directorio-de-datos-de-moodle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 10. Creamos el directorio de datos de Moodle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-11-reiniciamos-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 11. Reiniciamos apache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-12-comprobacion-de-que-moodle-funciona" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 12. Comprobación de que Moodle funciona
     </span>
   </a>
   
@@ -474,84 +471,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-creacion-del-archivo-setup_nfs_client-para-los-clientes-nfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Creación del archivo setup_nfs_client para los clientes NFS
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Creación del archivo setup_nfs_client para los clientes NFS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#paso-1-importamos-el-archivo-de-variables-y-mostramos-los-comandos-que-se-van-ejecutando_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paso 1. Importamos el archivo de variables y mostramos los comandos que se van ejecutando
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paso-2-actualizamos-los-repositorios_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paso 2. Actualizamos los repositorios
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paso-3-actualizamos-los-paquetes_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paso 3. Actualizamos los paquetes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paso-4-instalamos-el-cliente-nfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paso 4. Instalamos el cliente NFS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paso-5-montamos-el-directorio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paso 5. Montamos el directorio
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paso-6-cambiamos-la-variable-de-etcfstab" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paso 6. Cambiamos la variable de /etc/fstab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comprobacion-de-que-wordpress-en-la-arquitectura-de-tres-niveles-funciona" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comprobación de que WordPress en la arquitectura de tres niveles funciona
-    </span>
-  </a>
   
 </li>
       
@@ -559,6 +478,27 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Pr%C3%A1ctica1.11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica-1.11
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -620,9 +560,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implantacion-de-wordpress-en-aws-utilizando-una-arquitectura-de-tres-niveles" class="md-nav__link">
+  <a href="#implantacion-de-moodle-en-amazon-web-services-aws" class="md-nav__link">
     <span class="md-ellipsis">
-      Implantación de Wordpress en AWS utilizando una arquitectura de tres niveles
+      Implantación de Moodle en Amazon Web Services (AWS)
     </span>
   </a>
   
@@ -653,22 +593,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-infraestructura-necesaria" class="md-nav__link">
+  <a href="#2-creacion-del-archivo-deploy_moodle-para-la-implementacion" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 Infraestructura necesaria
+      2. Creación del archivo deploy_moodle para la implementación
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-creacion-del-archivo-setup_nfs_server-para-el-servidor-nfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Creación del archivo setup_nfs_server para el servidor NFS
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Creación del archivo setup_nfs_server para el servidor NFS">
+    <nav class="md-nav" aria-label="2. Creación del archivo deploy_moodle para la implementación">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -681,72 +612,99 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-2-actualizamos-los-repositorios" class="md-nav__link">
+  <a href="#paso-2-eliminamos-descargas-previas-de-moodle" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 2. Actualizamos los repositorios
+      Paso 2. Eliminamos descargas previas de moodle
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-3-actualizamos-los-paquetes" class="md-nav__link">
+  <a href="#paso-3-eliminamos-descargas-previas-de-varwwwhtml" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 3. Actualizamos los paquetes
+      Paso 3. Eliminamos descargas previas de /var/www/html/*
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-4-instalamos-el-servidor-nfs" class="md-nav__link">
+  <a href="#paso-4-descargamos-el-codigo-fuente-de-moodle" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 4. Instalamos el servidor NFS
+      Paso 4. Descargamos el código fuente de Moodle
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-5-hacemos-el-directorio" class="md-nav__link">
+  <a href="#paso-5-extraemos-moodle" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 5. hacemos el directorio
+      Paso 5. Extraemos Moodle
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-6-modificamos-el-grupo-y-el-propietario-del-directorio" class="md-nav__link">
+  <a href="#paso-6-movemos-moodle-al-directorio-deseado" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 6. Modificamos el grupo y el propietario del directorio
+      Paso 6. Movemos Moodle al directorio deseado
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-7-copiamos-la-plantilla-exports-a-etcexports" class="md-nav__link">
+  <a href="#paso-7-configuramos-permisos-para-apache" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 7. copiamos la plantilla exports a /etc/exports
+      Paso 7. Configuramos permisos para apache
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-8-reemplazamos-el-valor-de-la-plantilla-de-etcexports" class="md-nav__link">
+  <a href="#paso-8-creamos-la-base-de-datos-y-el-usuario-para-moodle" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 8. Reemplazamos el valor de la plantilla de /etc/exports
+      Paso 8. Creamos la base de datos y el usuario para Moodle
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#paso-9-reiniciamos-el-servicio-de-nfs" class="md-nav__link">
+  <a href="#paso-9-creamos-el-archivo-de-configuracion-de-moodle-y-lo-configuramos" class="md-nav__link">
     <span class="md-ellipsis">
-      Paso 9. Reiniciamos el servicio de NFS
+      Paso 9. Creamos el archivo de configuración de moodle y lo configuramos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-10-creamos-el-directorio-de-datos-de-moodle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 10. Creamos el directorio de datos de Moodle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-11-reiniciamos-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 11. Reiniciamos apache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-12-comprobacion-de-que-moodle-funciona" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 12. Comprobación de que Moodle funciona
     </span>
   </a>
   
@@ -754,84 +712,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-creacion-del-archivo-setup_nfs_client-para-los-clientes-nfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Creación del archivo setup_nfs_client para los clientes NFS
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Creación del archivo setup_nfs_client para los clientes NFS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#paso-1-importamos-el-archivo-de-variables-y-mostramos-los-comandos-que-se-van-ejecutando_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paso 1. Importamos el archivo de variables y mostramos los comandos que se van ejecutando
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paso-2-actualizamos-los-repositorios_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paso 2. Actualizamos los repositorios
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paso-3-actualizamos-los-paquetes_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paso 3. Actualizamos los paquetes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paso-4-instalamos-el-cliente-nfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paso 4. Instalamos el cliente NFS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paso-5-montamos-el-directorio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paso 5. Montamos el directorio
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paso-6-cambiamos-la-variable-de-etcfstab" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paso 6. Cambiamos la variable de /etc/fstab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comprobacion-de-que-wordpress-en-la-arquitectura-de-tres-niveles-funciona" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comprobación de que WordPress en la arquitectura de tres niveles funciona
-    </span>
-  </a>
   
 </li>
       
@@ -851,95 +731,98 @@
 
 
 
-<h1 id="practica-iaw-111-implantacion-de-wordpress-en-aws-utilizando-una-arquitectura-de-tres-niveles">Practica-IAW-1.11- Implantación de Wordpress en AWS utilizando una arquitectura de tres niveles</h1>
+<h1 id="practica-iaw-18-implantacion-de-moodle-en-amazon-web-services-aws">Practica-IAW-1.8- Implantación de Moodle en Amazon Web Services (AWS)</h1>
 <h2 id="pasos-previos-a-la-instalacion">Pasos previos a la instalación</h2>
 <p><strong>para la instalación vamos a tener que crear la siguiente estructura de directorios y archivos:</strong></p>
-<p><img alt="" src="../imagenes/directorio-1.11.png" /></p>
-<p><strong>Una vez creados los archivos y directorios, procedemos a la implantación de Wordpress en AWS utilizando una arquitectura de tres niveles.</strong></p>
-<h2 id="implantacion-de-wordpress-en-aws-utilizando-una-arquitectura-de-tres-niveles">Implantación de Wordpress en AWS utilizando una arquitectura de tres niveles</h2>
+<p><img alt="" src="../imagenes/directorio-1.8.png" /></p>
+<p><strong>Una vez creados los archivos y directorios, procedemos a la instalación de las herramientas.</strong></p>
+<h2 id="implantacion-de-moodle-en-amazon-web-services-aws">Implantación de Moodle en Amazon Web Services (AWS)</h2>
 <h2 id="1-creamos-un-nombre-de-dominio-para-nuestro-servidor-con-la-web-no-ip">1. Creamos un nombre de dominio para nuestro servidor con la web <code>no-ip</code></h2>
 <h3 id="paso-1-crear-el-nombre-del-dominio">Paso 1. Crear el nombre del dominio</h3>
 <p>Para crear el nombre de dominio en la página, tenemos que registrarnos y dirigirnos al sitio que muestra la captura y darle a <strong>crear nombre de host</strong>.</p>
-<p><img alt="" src="../imagenes/no-ip-1.11.png" /></p>
+<p><img alt="" src="../imagenes/no-ip1.8.png" /></p>
 <p>Una vez dado al recuadro de crear el nombre, nos sale un asistente para poner el nombre de host que queramos, el dominio que queremos que lleve, la dirección ip de la máquina o pc que queremos que tenga ese nombre de host y el tipo de registro que queremos que lleve, en nuestro caso es el <strong>DNS Host A</strong></p>
-<p><img alt="" src="../imagenes/no-ip2-1.11.png" /></p>
-<p>Hecho esto ya podemos automatizar el proceso de la implantación de Wordpress en AWS utilizando una arquitectura de tres niveles</p>
-<h2 id="11-infraestructura-necesaria">1.1 Infraestructura necesaria</h2>
-<p>La infraestructura necesaria está compuesta de cuatro máquinas virtuales, una para el balanceador de carga (Load Balancer), dos como frontales web (Front-End) y una como servidor de base de datos MySQL (Back-End).</p>
-<ul>
-<li>Servidor NFS (Esta práctica, Práctica-IAW-1.11-NFS_server)</li>
-<li>Balanceador. (Práctica-IAW-1.10-LoadBalancer).</li>
-<li>Frontal Web 1/Cliente NFS. (Práctica-IAW-1.9-Frontend).</li>
-<li>Frontal Web 2/Cliente NFS. (Práctica-IAW-1.10-frontend2).</li>
-<li>Servidor de Base de Datos MySQL. (Práctica-IAW-1.9-Backend).</li>
-</ul>
-<h2 id="2-creacion-del-archivo-setup_nfs_server-para-el-servidor-nfs">2. Creación del archivo <code>setup_nfs_server</code> para el servidor NFS</h2>
+<p><img alt="" src="../imagenes/no-ip2-1.8.png" /></p>
+<p>Hecho esto ya podemos automatizar la implantación de Moodle en Amazon Web Services (AWS)</p>
+<h2 id="2-creacion-del-archivo-deploy_moodle-para-la-implementacion">2. Creación del archivo <code>deploy_moodle</code> para la implementación</h2>
 <h3 id="paso-1-importamos-el-archivo-de-variables-y-mostramos-los-comandos-que-se-van-ejecutando">Paso 1. Importamos el archivo de variables y mostramos los comandos que se van ejecutando</h3>
 <pre><code class="language-bash">source .env
 </code></pre>
 <pre><code class="language-bash">set -ex
 </code></pre>
-<h3 id="paso-2-actualizamos-los-repositorios">Paso 2. Actualizamos los repositorios</h3>
-<pre><code class="language-bash">apt update
+<h3 id="paso-2-eliminamos-descargas-previas-de-moodle">Paso 2. Eliminamos descargas previas de moodle</h3>
+<pre><code class="language-bash">rm -rf /tmp/moodle*
 </code></pre>
-<h3 id="paso-3-actualizamos-los-paquetes">Paso 3. Actualizamos los paquetes</h3>
-<pre><code class="language-bash">apt upgrade -y
+<blockquote>
+<p>[!TIP]<br />
+Hacemos esto para evitar que haya duplicados dentro de ese directorio a la hora de descargarnos moodle.</p>
+</blockquote>
+<h3 id="paso-3-eliminamos-descargas-previas-de-varwwwhtml">Paso 3. Eliminamos descargas previas de /var/www/html/*</h3>
+<pre><code class="language-bash">rm -rf /var/www/html/*
 </code></pre>
-<h3 id="paso-4-instalamos-el-servidor-nfs">Paso 4. Instalamos el servidor NFS</h3>
-<pre><code class="language-bash">apt install nfs-kernel-server -y
+<h3 id="paso-4-descargamos-el-codigo-fuente-de-moodle">Paso 4. Descargamos el código fuente de Moodle</h3>
+<pre><code class="language-bash">wget https://download.moodle.org/download.php/direct/stable405/moodle-latest-405.tgz -P /tmp
 </code></pre>
-<h3 id="paso-5-hacemos-el-directorio">Paso 5. hacemos el directorio</h3>
-<pre><code class="language-bash">mkdir -p /var/www/html
+<h3 id="paso-5-extraemos-moodle">Paso 5. Extraemos Moodle</h3>
+<pre><code class="language-bash">tar -zxvf /tmp/moodle-latest-405.tgz -C /tmp
 </code></pre>
-<h3 id="paso-6-modificamos-el-grupo-y-el-propietario-del-directorio">Paso 6. Modificamos el grupo y el propietario del directorio</h3>
-<pre><code class="language-bash">chown nobody:nogroup /var/www/html
+<h3 id="paso-6-movemos-moodle-al-directorio-deseado">Paso 6. Movemos Moodle al directorio deseado</h3>
+<pre><code class="language-bash">mv /tmp/moodle $MOODLE_DIRECTORY
 </code></pre>
-<h3 id="paso-7-copiamos-la-plantilla-exports-a-etcexports">Paso 7. copiamos la plantilla exports a /etc/exports</h3>
-<pre><code class="language-bash">cp ../conf/load_balancer.conf /etc/nginx/sites-available
+<h3 id="paso-7-configuramos-permisos-para-apache">Paso 7. Configuramos permisos para apache</h3>
+<pre><code class="language-bash">chown -R www-data:www-data $MOODLE_DIRECTORY
+chmod -R 755 $MOODLE_DIRECTORY
+</code></pre>
+<h3 id="paso-8-creamos-la-base-de-datos-y-el-usuario-para-moodle">Paso 8. Creamos la base de datos y el usuario para Moodle</h3>
+<pre><code class="language-bash">mysql -u root &lt;&lt;&lt; &quot;DROP DATABASE IF EXISTS $MOODLE_DB_NAME&quot;
+mysql -u root &lt;&lt;&lt; &quot;CREATE DATABASE $MOODLE_DB_NAME DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci&quot;
+mysql -u root &lt;&lt;&lt; &quot;DROP USER IF EXISTS '$MOODLE_DB_USER'@'$IP_CLIENTE_MYSQL'&quot;
+mysql -u root &lt;&lt;&lt; &quot;CREATE USER '$MOODLE_DB_USER'@'$IP_CLIENTE_MYSQL' IDENTIFIED BY '$MOODLE_DB_PASSWORD'&quot;
+mysql -u root &lt;&lt;&lt; &quot;GRANT ALL PRIVILEGES ON $MOODLE_DB_NAME.* TO '$MOODLE_DB_USER'@'$IP_CLIENTE_MYSQL'&quot;
+mysql -u root &lt;&lt;&lt; &quot;FLUSH PRIVILEGES&quot;
 </code></pre>
 <blockquote>
 <p>[!IMPORTANT]<br />
-El archivo <code>exports</code> lo tenemos que hacer nosotros en la carpeta <code>conf</code> y moverlo al directorio de sitios disponibles de nginx para que lo vea y lo habilite para su funcionamiento. A continuación, pongo el contenido del fichero <code>exports</code>:
-<code>bash
-/var/www/html FRONTEND_NETWORK(rw,sync,no_root_squash,no_subtree_check)</code></p>
+Las variables las cambiamos por las que tenemos en el archivo <code>.env</code> configuradas para que se cree todo correctamente.</p>
 </blockquote>
-<h3 id="paso-8-reemplazamos-el-valor-de-la-plantilla-de-etcexports">Paso 8. Reemplazamos el valor de la plantilla de /etc/exports</h3>
-<pre><code class="language-bash">sed -i &quot;s#FRONTEND_NETWORK#$FRONTEND_NETWORK#&quot; /etc/exports
+<h3 id="paso-9-creamos-el-archivo-de-configuracion-de-moodle-y-lo-configuramos">Paso 9. Creamos el archivo de configuración de moodle y lo configuramos</h3>
+<pre><code class="language-bash">cp $MOODLE_DIRECTORY/config-dist.php $MOODLE_DIRECTORY/config.php
+sed -i &quot;s/'pgsql'/'${MOODLE_TYPE//\//\\/}'/g&quot; $MOODLE_DIRECTORY/config.php 
+sed -i &quot;s/'localhost'/'${MOODLE_DB_HOST//\//\\/}'/g&quot; $MOODLE_DIRECTORY/config.php 
+sed -i &quot;s/'moodle'/'${MOODLE_DB_NAME//\//\\/}'/g&quot; $MOODLE_DIRECTORY/config.php 
+sed -i &quot;s/'username'/'${MOODLE_DB_USER//\//\\/}'/g&quot; $MOODLE_DIRECTORY/config.php 
+sed -i &quot;s/'password'/'${MOODLE_DB_PASSWORD//\//\\/}'/g&quot; $MOODLE_DIRECTORY/config.php 
+sed -i &quot;s|\$CFG-&gt;wwwroot.*|\$CFG-&gt;wwwroot = 'https://${MOODLE_DOMAIN//\//\\/}';|&quot; $MOODLE_DIRECTORY/config.php
+sed -i &quot;s|\$CFG-&gt;dataroot.*|\$CFG-&gt;dataroot = '${MOODLE_DATA_DIRECTORY//\//\\/}';|&quot; $MOODLE_DIRECTORY/config.php
+sed -i &quot;s/^max_input_vars.*/max_input_vars = 5000/&quot; /etc/php/8.3/cli/php.ini
+sed -i &quot;s/^max_input_vars.*/max_input_vars = 5000/&quot; /etc/php/8.3/apache2/php.ini
 </code></pre>
 <blockquote>
 <p>[!IMPORTANT]<br />
-Las variables que irán apareciendo durante los pasos están todas definidas en el archivo <code>.env</code> y en <code>.env.example</code> se pueden ver las variables que hay que tener definidas.</p>
+<strong>Las variables</strong> las cambiamos por las que tenemos en el archivo <code>.env</code> configuradas para que se cree todo correctamente. </p>
+<blockquote>
+<p><strong>Descripción de los comandos:</strong> 
+- Cambia el tipo de base de datos usado por Moodle. 
+- Actualiza la dirección del servidor de la base de datos. 
+- Configura el nombre de la base de datos de Moodle. 
+- Establece el nombre de usuario para la base de datos. 
+- Define la contraseña para la base de datos. 
+- Actualiza la URL principal del sitio Moodle. 
+- Configura el directorio donde Moodle almacena sus datos. 
+- Ajusta el parámetro <code>max_input_vars</code> para PHP CLI. 
+- Ajusta el parámetro <code>max_input_vars</code> para PHP Apache.</p>
 </blockquote>
-<h3 id="paso-9-reiniciamos-el-servicio-de-nfs">Paso 9. Reiniciamos el servicio de NFS</h3>
-<pre><code class="language-bash">systemctl restart nfs-kernel-server
+</blockquote>
+<h3 id="paso-10-creamos-el-directorio-de-datos-de-moodle">Paso 10. Creamos el directorio de datos de Moodle</h3>
+<pre><code class="language-bash">mkdir -p $MOODLE_DATA_DIRECTORY
+chown -R www-data:www-data $MOODLE_DATA_DIRECTORY
+chmod -R 755 $MOODLE_DATA_DIRECTORY
 </code></pre>
-<hr />
-<h2 id="3-creacion-del-archivo-setup_nfs_client-para-los-clientes-nfs">3. Creación del archivo <code>setup_nfs_client</code> para los clientes NFS</h2>
-<h3 id="paso-1-importamos-el-archivo-de-variables-y-mostramos-los-comandos-que-se-van-ejecutando_1">Paso 1. Importamos el archivo de variables y mostramos los comandos que se van ejecutando</h3>
-<pre><code class="language-bash">source .env
+<h3 id="paso-11-reiniciamos-apache">Paso 11. Reiniciamos apache</h3>
+<pre><code class="language-bash">systemctl restart apache2
 </code></pre>
-<pre><code class="language-bash">set -ex
-</code></pre>
-<h3 id="paso-2-actualizamos-los-repositorios_1">Paso 2. Actualizamos los repositorios</h3>
-<pre><code class="language-bash">apt update
-</code></pre>
-<h3 id="paso-3-actualizamos-los-paquetes_1">Paso 3. Actualizamos los paquetes</h3>
-<pre><code class="language-bash">apt upgrade -y
-</code></pre>
-<h3 id="paso-4-instalamos-el-cliente-nfs">Paso 4. Instalamos el cliente NFS</h3>
-<pre><code class="language-bash">apt install nfs-common -y
-</code></pre>
-<h3 id="paso-5-montamos-el-directorio">Paso 5. Montamos el directorio</h3>
-<pre><code class="language-bash">mount $NFS_SERVER_IP:/var/www/html /var/www/html
-</code></pre>
-<h3 id="paso-6-cambiamos-la-variable-de-etcfstab">Paso 6. Cambiamos la variable de /etc/fstab</h3>
-<pre><code class="language-bash">sed -i '$a\172.31.28.95:/var/www/html /var/www/html  nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0' /etc/fstab
-</code></pre>
-<h2 id="comprobacion-de-que-wordpress-en-la-arquitectura-de-tres-niveles-funciona">Comprobación de que WordPress en la arquitectura de tres niveles funciona</h2>
-<p><img alt="" src="../imagenes/WordPress1-1.11.png" /></p>
-<p><img alt="" src="../imagenes/WordPress3-1.11.png" /></p>
-<p><img alt="" src="../imagenes/WordPress4-1.11.png" /></p>
-<p>Sale el nombre de la Práctica 1.9 porque no le he cambiado el nombre a la página.</p>
+<h3 id="paso-12-comprobacion-de-que-moodle-funciona">Paso 12. Comprobación de que Moodle funciona</h3>
+<p><img alt="" src="../imagenes/Moodle.png" /></p>
 
 
 
