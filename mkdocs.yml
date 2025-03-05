@@ -10,3 +10,4 @@ theme:
   name: material
   palette:
     primary: cyan
+    accent: purple
