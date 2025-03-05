@@ -3,5 +3,10 @@ site_name: IAW
 nav:
     - Principal: index.md
     - Acerca de: about.md
+    - Práctica-1: Práctica1.md
+    - Práctica-2: Práctica2.md
 
-theme: material
+theme: 
+  name: material
+  palette:
+    primary: cyan
