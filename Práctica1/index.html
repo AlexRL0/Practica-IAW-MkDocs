@@ -1352,7 +1352,7 @@
 <h1 id="practica-iaw-11-instalacion-de-apache-http-server-php-y-mysql-server-en-ubuntu-server">Practica-IAW-1.1- Instalación de Apache HTTP Server, PHP y MySQL Server en Ubuntu Server</h1>
 <h2 id="pasos-previos-a-la-instalacion">Pasos previos a la instalación</h2>
 <p><strong>para la instalación vamos a tener que crear la siguiente estructura de directorios y archivos:</strong></p>
-<p><img alt="" src="docs/imagenes/directorio.png" /></p>
+<p><img alt="" src="../imagenes/directorio.png" /></p>
 <p><strong>Una vez creados los archivos y directorios, procedemos a la instalación de las herramientas.</strong></p>
 <h2 id="instalacion-de-apache-http-server-php-y-mysql-server-en-ubuntu-server">Instalación de Apache HTTP Server, PHP y MySQL Server en Ubuntu Server</h2>
 <h2 id="1-creacion-del-archivo-install_lampsh-para-la-automatizacion-del-proceso-de-instalacion">1. Creación del archivo <code>install_lamp.sh</code> para la automatización del proceso de instalación</h2>
@@ -1375,7 +1375,7 @@ sudo apt upgrade -y
 <blockquote>
 <p>[!IMPORTANT]<br />
 Tenemos que hacer un archivo de configuración llamado <code>000-default.conf</code> y copiarlo en los sitios disponibles de apache para que lo podamos habilitar. El archivo <code>000-default.conf</code> tiene que quedar como en la imagen: <br />
-<img alt="" src="docs/imagenes/000-default.conf.png" /></p>
+<img alt="" src="../imagenes/000-default.conf.png" /></p>
 </blockquote>
 <h3 id="paso-4-instalamos-php-y-algunos-modulos-para-apache-y-mysql">Paso 4: Instalamos PHP y algunos módulos para Apache y MySQL</h3>
 <pre><code>apt install php libapache2-mod-php php-mysql -y
@@ -1404,9 +1404,9 @@ Esto se hace debido a que en el archivo de configuración <code>000-default.conf
 </code></pre>
 <p><strong>:warning:Lo modificamos ya que el grupo www-data pertenece al usuario con el que se ejecuta el servicio Apache y necesita permisos para ver, leer y escribir dentro de ese directorio.</strong></p>
 <h3 id="paso-4-comprobacion-de-que-la-pagina-indexphp-funciona">Paso 4: comprobación de que la página <code>index.php</code> funciona</h3>
-<p><img alt="" src="docs/imagenes/index.php.png" /></p>
+<p><img alt="" src="../imagenes/index.php.png" /></p>
 <h3 id="paso-5-comprobacion-de-que-el-servicio-mysqlserver-funciona">Paso 5: comprobación de que el servicio <code>MySQLServer</code> funciona</h3>
-<p><img alt="" src="docs/imagenes/mysqlserver.png" /></p>
+<p><img alt="" src="../imagenes/mysqlserver.png" /></p>
 <hr />
 <h2 id="2-creacion-del-archivo-install_toolssh-para-la-automatizacion-del-proceso-de-instalacion">2. Creación del archivo <code>install_tools.sh</code> para la automatización del proceso de instalación</h2>
 <h3 id="importamos-el-archivo-de-variables">Importamos el archivo de variables</h3>
@@ -1448,7 +1448,7 @@ mysql -u root &lt;&lt;&lt; &quot;CREATE USER '$DB_USER'@'%' IDENTIFIED BY '$DB_P
 mysql -u root &lt;&lt;&lt; &quot;GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%'&quot;
 </code></pre>
 <h3 id="paso-4-comprobacion-de-que-la-pagina-phpmyadmin-funciona">Paso 4: comprobación de que la página <code>phpMyAdmin</code> funciona</h3>
-<p><img alt="" src="docs/imagenes/phpmyadmin.png" /></p>
+<p><img alt="" src="../imagenes/phpmyadmin.png" /></p>
 <h2 id="23-instalacion-de-adminer">2.3 Instalacion de Adminer</h2>
 <h3 id="paso-1-creamos-un-directorio-para-adminer">Paso 1: Creamos un directorio para adminer</h3>
 <pre><code>mkdir -p /var/www/html/adminer
@@ -1469,7 +1469,7 @@ Renombramos el directorio ya que el nombre que tiene es muy largo y lo cambiamos
 </code></pre>
 <p><strong>Una vez más tenemos que darle permisos al grupo y usuario de apache para que pueda leer el archivo.</strong></p>
 <h3 id="paso-5-comprobacion-de-que-la-pagina-adminer-funciona">Paso 5: comprobación de que la página <code>adminer</code> funciona</h3>
-<p><img alt="" src="docs/imagenes/adminer.png" /></p>
+<p><img alt="" src="../imagenes/adminer.png" /></p>
 <h2 id="24-instalacion-de-la-herramienta-goacces">2.4 Instalacion de la herramienta GoAcces</h2>
 <h3 id="paso-1-instalamos-la-herramienta-goaccess">Paso 1. Instalamos la herramienta goaccess</h3>
 <pre><code>apt update
@@ -1491,7 +1491,7 @@ apt install goaccess -y
 <p>[!IMPORTANT]<br />
 Tenemos que hacer otro archivo de configuración llamado <code>000-default.stats.conf</code> y copiarlo en los sitios disponibles de apache para que lo podamos habilitar más tarde.<br />
 El archivo <code>000-default.stats.conf</code> tiene que quedar como en la imagen:
-<img alt="" src="docs/imagenes/000-default.stats.conf.png" /></p>
+<img alt="" src="../imagenes/000-default.stats.conf.png" /></p>
 </blockquote>
 <h3 id="paso-2-deshabilitamos-el-virtualhost-que-hay-por-defecto">Paso 2: Deshabilitamos el virtualhost que hay por defecto</h3>
 <pre><code>a2dissite 000-default.conf
@@ -1516,7 +1516,7 @@ El archivo <code>000-default.stats.conf</code> tiene que quedar como en la image
 <p>[!IMPORTANT]<br />
 Tenemos que hacer otro archivo de configuración llamado <code>000-default-htaccess.conf</code> y copiarlo en los sitios disponibles de apache para que lo podamos habilitar más tarde.<br />
 El archivo <code>000-default-htaccess.conf</code> tiene que quedar como en la imagen:
-<img alt="" src="docs/imagenes/000-default-htaccess.conf.png" /></p>
+<img alt="" src="../imagenes/000-default-htaccess.conf.png" /></p>
 </blockquote>
 <h3 id="paso-2-deshabilitamos-el-virtualhost-000-default-statsconf">Paso 2: Deshabilitamos el virtualhost <code>000-default-stats.conf</code></h3>
 <pre><code>a2dissite 000-default.stats.conf
@@ -1534,12 +1534,12 @@ El archivo <code>000-default-htaccess.conf</code> tiene que quedar como en la im
 <p>[!IMPORTANT]<br />
 Tenemos que hacer un archivo de configuración llamado <code>.htaccess</code> y copiarlo en la ruta de <code>stats</code> para que coja la configuración del archivo y al entrar a la web nos pida las credenciales necesarias.<br />
 El archivo <code>.htaccess</code> tiene que quedar como en la imagen:
-<img alt="" src="docs/imagenes/htaccess.png" /></p>
+<img alt="" src="../imagenes/htaccess.png" /></p>
 </blockquote>
 <h3 id="paso-6-comprobacion-de-que-la-autenticacion-funciona">Paso 6: comprobación de que la autenticación funciona</h3>
-<p><img alt="" src="docs/imagenes/stats.png" /></p>
+<p><img alt="" src="../imagenes/stats.png" /></p>
 <h3 id="paso-7-comprobacion-de-que-la-pagina-funciona">Paso 7: comprobación de que la página funciona</h3>
-<p><img alt="" src="docs/imagenes/stats2.png" /></p>
+<p><img alt="" src="../imagenes/stats2.png" /></p>
 
 
 
