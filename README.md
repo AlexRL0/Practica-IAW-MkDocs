@@ -105,8 +105,9 @@ Hay que buscar la sección Workflow permissions y seleccionamos la opción Read 
 
 ## 5. Comprobación de que se hace y se publica la página correctamente
 
-![5.1-parte-5](imagenes)
-![5.1-parte-6](imagenes)
+![5.1-parte-5](imagenes/action-hecho-mkdocs.png)
+![5.1-parte-6](imagenes/página-mkdocs.png)
 
 ## 6. URL de la página web
 
+[https://alexrl0.github.io/Practica-IAW-MkDocs/Pr%C3%A1ctica1.11/](https://alexrl0.github.io/Practica-IAW-MkDocs/Pr%C3%A1ctica1.11/)
