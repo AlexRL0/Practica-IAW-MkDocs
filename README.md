@@ -10,226 +10,103 @@ Para crear la estructura de archivos del MkDocs podemos hacer uso del comando ne
 docker run --rm -it -p 8000:8000 -u $(id -u):$(id -g) -v "$PWD":/docs squidfunk/mkdocs-material new .
 ```
 
-El comando anterior creará el archivo de configuración mkdocs.yml y el archivo Markdown index.md dentro del directorio docs.
+Este comando creará el archivo de configuración mkdocs.yml y el archivo Markdown index.md dentro del directorio docs.
 
 el flujo de archivos se verá tal que así:
 
 ![5.4-parte-1](imagenes/directorio-MkDocs.png)
 
-## 2. Comando usado para crear un tag a la imagen ya montada
+## 2. Archivo de configuración mkdocs.yml por dentro
 
 ```bash
-docker tag alexrl0/2048 alexrl0/2048:1.0
+site_name: IAW
+
+nav:
+    - Principal: index.md
+    - Acerca de: about.md
+    - Práctica-1.1: Práctica1.1.md
+    - Práctica-1.8: Práctica1.8.md
+    - Práctica-1.11: Práctica1.11.md 
+    - Práctica-5.4: Práctica5.4.md
+
+theme: 
+  name: material
+  palette:
+    primary: cyan
+    accent: purple
 ```
 
-![5.4-parte-1](imagenes/docker-files-5.4-parte1.png)
-
-## 3. Comando para iniciar sesión en dockerhub
+## 3. Crear la  página web de manera desatendida
 
 ```bash
-docker login -u alexrl0
+docker run --rm -it -u $(id -u):$(id -g) -v "$PWD":/docs squidfunk/mkdocs-material build
 ```
 
-> [!IMPORTANT]  
-> Al iniciar sesión con este comando, nos pedirá una contraseña, en vez de poner una contraseña, tenemos que crear un token en dockerhub con permisos de lectura, escritura y ejecución y pegarlo para poder iniciar sesión.
+Este comando creará un directorio llamado site donde guarda el sitio web que se ha generado. En la imagen del comienzo, se puede ver como está la carpeta site.
 
-vamos por pasos, lo primero es inicar sesión en dockerhub con la cuenta de github, una vez iniciada la sesión, le damos click a nuestro perfil y se nos desplegará una ventana flotante como aparece en la imagen señalado con una flecha, cuando estemos en esa ventana, le damos a `Accounts settings` y nos aparecerá lo que sale en la imagen. Una vez dentro, le damos a `Personal access tokens` y dentro, le damos a `create new token`.
+## 4. Crear un workflow de CI/CD en GitHub Actions para pubicar un sitio web en GitHub Pages
 
-![5.1-parte-2](imagenes/docker-files-5.4-parte2.png)
-
----
-
-Cuando le damos a crear el nuevo token, nos aparecerá una ventana como la que se ve en la imagen, nos pedirá un nombre para el token, una fecha de caducidad que en mi caso no le he puesto y lo último pero lo más importante los permisos de la misma, tenemos que ponerle de lectura, escritura y ejecución porque si no, docker no va a poder subir la imagen a dockerhub.
-
-![5.1-parte-3](imagenes/docker-files-5.4-parte3.png)
-
-## 4. Archivo dockerfile que se va a ejecutar
+Archivo `build-push-mkdocs.yaml` para la carpeta .github/workflows:
 
 ```bash
-FROM ubuntu:24.04
+name: build-push-mkdocs
 
-RUN apt update && \
-  apt install nginx -y && \
-  apt install git -y && \
-  rm -rf /var/lib/apt/lists/*
-
-RUN git clone https://github.com/josejuansanchez/2048.git /app && \
-    mv /app/* /var/www/html/
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
-```
-
-## 5. Archivo action de github que automatiza todo el proceso
-
-```bash
-name: Publish image to Docker Hub
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
+# Eventos que desescandenan el workflow
 on:
   push:
-    branches: [ "main" ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+    branches: ["main"]
+
   workflow_dispatch:
 
-env:
-  # Use docker.io for Docker Hub if empty
-  REGISTRY: docker.io
-  # github.repository as <account>/<repo>
-  #IMAGE_NAME: ${{ github.repository }}
-  IMAGE_NAME: 2048
-  IMAGE_TAG: latest
-
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
+  # Job para crear la documentación de mkdocs
   build:
-
+    # Indicamos que este job se ejecutará en una máquina virtual con la última versión de ubuntu
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-
+    
+    # Definimos los pasos de este job
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Clone repository
+        uses: actions/checkout@v4
 
-      # Set up BuildKit Docker container builder to be able to build
-      # multi-platform images and export cache
-      # https://github.com/docker/setup-buildx-action
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@f95db51fddba0c2d1ec667646a06c2ce06100226 # v3.0.0
-
-      # Login against a Docker registry except on PR
-      # https://github.com/docker/login-action
-      - name: Log into registry ${{ env.REGISTRY }}
-        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
+      - name: Install Python3
+        uses: actions/setup-python@v4
         with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          python-version: 3.x
 
-      # This action can be used to check the content of the variables
-      - name: Debug
+      - name: Install Mkdocs
         run: |
-          echo "github.repository: ${{ github.repository }}"
-          echo "env.REGISTRY: ${{ env.REGISTRY }}"
-          echo "github.sha: ${{ github.sha }}"
-          echo "env.IMAGE_NAME: ${{ env.IMAGE_NAME }}"
+          pip install mkdocs
+          pip install mkdocs-material 
 
-      # Build and push Docker image with Buildx (don't push on PR)
-      # https://github.com/docker/build-push-action
-      - name: Build and push Docker image
-        id: build-and-push
-        uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
-        with:
-          context: .
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max          
+      - name: Build MkDocs
+        run: |
+          mkdocs build
+
+      - name: Push the documentation in a branch
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: gh-pages # The branch name where you want to push the assets
+          FOLDER: site # The directory where your assets are generated
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+          MESSAGE: "Build: ({sha}) {msg}" # The commit message
 ```
 
-Este archivo de trabajo de GitHub Actions construye y publica una imagen Docker en DockerHub.
+## 5. Cambiar los permisos del workflow del repositorio
 
-```yaml
-name: Publish image to Docker Hub
-```
+Para configurar el repositorio seleccionamos: Settings -> Actions -> General.
 
-## Eventos de Activación
+Hay que buscar la sección Workflow permissions y seleccionamos la opción Read and write permissions
 
-El flujo de trabajo se activa con los siguientes eventos:
+![5.1-parte-5](imagenes/workflow-permisos.png)
 
-```yaml
-on:
-  push:
-    branches: [ "main" ]
-  tags: [ 'v*.*.*' ]
-  workflow_dispatch:
-```
+## 5. Comprobación de que se hace y se publica la página correctamente
 
-## Variables de Entorno
+![5.1-parte-5](imagenes)
+![5.1-parte-6](imagenes)
 
-Estas son las variables de entorno utilizadas en el flujo de trabajo:
+## 6. URL de la página web
 
-```yaml
-env:
-  REGISTRY: docker.io
-  IMAGE_NAME: 2048
-  IMAGE_TAG: latest
-```
-
-## Jobs y Pasos
-
-### Build Job
-
-El trabajo `build` se ejecuta en un sistema `ubuntu-latest` con los siguientes pasos:
-
-1. **Checkout del Repositorio**
-
-    ```yaml
-    - name: Checkout repository
-      uses: actions/checkout@v3
-    ```
-
-2. **Configurar Docker Buildx**
-
-    ```yaml
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3.0.0
-    ```
-
-3. **Inicio de Sesión en el Registro Docker**
-
-    ```yaml
-    - name: Log into registry ${{ env.REGISTRY }}
-      uses: docker/login-action@v3.0.0
-      with:
-        registry: ${{ env.REGISTRY }}
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-    ```
-    Es necesario crear dos secrets en el repositorio de GitHub con los mismos nombres que aparecen en el archivo .yml: `DOCKERHUB_USERNAME` y `DOCKERHUB_TOKEN`, indicándole para el del usuario el de DockerHub y para el token, el token que creamos anteriormente en DockerHub.
-![5.1-parte-4](imagenes/docker-files-5.4-parte4.png)
-
-4. **Paso de Depuración**
-
-    ```yaml
-    - name: Debug
-      run: |
-        echo "github.repository: ${{ github.repository }}"
-        echo "env.REGISTRY: ${{ env.REGISTRY }}"
-        echo "github.sha: ${{ github.sha }}"
-        echo "env.IMAGE_NAME: ${{ env.IMAGE_NAME }}"
-    ```
-
-5. **Construir y Publicar la Imagen Docker**
-
-    ```yaml
-    - name: Build and push Docker image
-      id: build-and-push
-      uses: docker/build-push-action@v5.0.0
-      with:
-        context: .
-        push: ${{ github.event_name != 'pull_request' }}
-        tags: ${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
-    ```
-
-## 5. Comprobación de que se hace y se publica en DockerHub
-
-![5.1-parte-5](imagenes/docker-files-5.4-parte5.png)
-![5.1-parte-6](imagenes/docker-files-5.4-parte6.png)
-
-## 6. Comprobación de que la aplicación se despliega y funciona correctamente
-
-```bash
-docker run -d -p 80:80 alexrl0/2048
-```
-
-![5.1-parte-5](imagenes/docker-files-5.4-parte7.png)
