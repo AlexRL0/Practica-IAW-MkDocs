@@ -14,7 +14,7 @@ El comando anterior creará el archivo de configuración mkdocs.yml y el archivo
 
 el flujo de archivos se verá tal que así:
 
-![5.4-parte-1](imagenes/docker-files-5.4-parte1.png)
+![5.4-parte-1](imagenes/directorio-MkDocs.png)
 
 ## 2. Comando usado para crear un tag a la imagen ya montada
 
